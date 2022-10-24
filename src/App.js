@@ -1,25 +1,26 @@
-import logo from './logo.svg';
+// Import React for components:
+import React from 'react'
+import Content from './Components/Component/index';
 import './App.css';
+import Header from './Components/Header';
+import Article from './Components/Article';
 
-function App() {
+// Change the function to class, add in a render method with the curly brackets.
+class App extends React.Component {
+
+  changeTitle = (title) => {
+    document.title = title;
+  }
+  render(){
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+    <Header greeting = "world" />
+    <Content changeTitle={this.changeTitle} />
+    <Article/>
+    </>
   );
+  }
 }
+
 
 export default App;
